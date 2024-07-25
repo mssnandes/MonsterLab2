@@ -1,21 +1,34 @@
-/*async function loadItems(id) {
-    try {
-      const response = await fetch(`http://localhost:3000/vestuario/`+id);
-      const data = await response.json();
-      const vestuario = data.product; // Array de produtos
+async function pullClothing() {
+    const idLocalStorage = localStorage.getItem('Id');
+    if (!idLocalStorage) {
+        alert('ID do produto não encontrado.');
+        return;
+    }
 
+    const id =  parseInt(idLocalStorage, 10);
+    if (id) {
+      const response = await fetch(`http://localhost:3000/vestuario/${id}`);
+      if (response.ok) {
+        const vestuario = await response.json();
+        const clothingItems = vestuario.clothing;
 
-      vestuario.forEach(vestuario => {
-        const option = document.createElement('div');
+        const promotion = parseFloat(clothingItems.promotion);
+        console.log(promotion);
+        const promo = promotion == 0 ? "" : "R$" + promotion.toFixed(2);
+        const price = parseFloat(clothingItems.price);
+
+        
+        const parcela = ( price / 3 );
+        console.log(Number.isInteger(price))
         const productHTML = `
 
             <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6">
-                    <img class="card-img-top mb-5 mb-md-0" src="/./img/Produtos/Roupas/camisa-dark-lab.png" alt="..." />
+                <div class="col-md-6 zoom-container">
+                    <img class="card-img-top mb-5 mb-md-0 cursor-zoom-in" src="/./img/Produtos/Vestuário/${clothingItems.image}" alt="..." />
                 </div>
                 <div class="col-md-6">
                     <div class="small mb-1"></div>
-                    <h1 class="display-5 fw-bolder">${vestuario.name}</h1>
+                    <h1 class="display-5 fw-bolder">${clothingItems.name}</h1>
                     <div class="d-flex justify-content-start small text-warning mb-2">
                         <div class="bi-star-fill"></div>
                         <div class="bi-star-fill"></div>
@@ -26,12 +39,12 @@
                     </div>
 
                     <div class="fs-5 mb-2">
-                        <span class="text-decoration-line-through h5 text-danger">R$99.00</span>
-                        <span class="h2">R$89.00</span>
+                        <span class="text-decoration-line-through h5 text-danger">${promo}</span>
+                        <span class="h2">R$${clothingItems.price.toFixed(2)}</span>
                     </div>
 
                     <div class="d-flex">
-                        <span class="text-danger f-bold fs-6">3x de R$9,97 sem juros</span>
+                        <span class="text-danger f-bold fs-6">3x de R$${parcela.toFixed(2)} sem juros</span>
                     </div>
                     
                     <div class="d-flex">
@@ -74,25 +87,17 @@
                         
                     </div>
                     <p class="lead">
-                        A Nova Camiseta Dark Lab chegou, fabricada com o tecido Dry-Fit de mais alta qualidade para se ajustar perfeitamente ao corpo, garantindo conforto e mobilidade em todos os momentos, ideal para práticas esportivas.
-
-                        Seu tecido de microfibras de poliéster proporciona altíssima dispersão do calor do corpo, aumentando a evaporação de suor, além de pesar aproximadamente 30% a menos que os tecidos convencionais.
-
-                        Por que treinar sem estilo? Se você pode treinar com estilo e com qualidade Dark Lab!
+                        ${clothingItems.description}
                     </p>
                 </div>
             </div>
                           
-              `;
-                const selectBox = document.getElementById('1');
-                selectBox.innerHTML += productHTML;
-      });
-
-
+            `;
+            document.querySelector('.add-html').innerHTML += productHTML;
+        } else {
+          alert('Erro ao buscar a roupa. Verifique se o ID está correto.');
+        }
     }
-    catch (error) {
-      console.error('Error loading pratos:', error);
-    }
+}
 
-  }
-  window.onload = loadItems;*/
+window.onload = pullClothing;

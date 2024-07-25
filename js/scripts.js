@@ -26,16 +26,18 @@ function changeImage(i2) {
 };
 
 
-/*
+const box = document.querySelector(".zoom-container");
+const img = box.querySelector(img);
 
-function changeImage(i2) {
-    var y = document.getElementById(i2);
-    if (y.src == "../img/Setas/down-arrow.png"){
-      alert("ATÉ AQUI TA TUDO BEM");
-        y.src = "../img/Setas/right-arrow.png";
-    } else {
-        y.src = "../img/Setas/down-arrow.png";
-    }
-};
+box.addEventListener("mousemove", (e) => {
+  const x = e.clientX - e.target.offsetLeft;
+  const y = e.clientY - e.target.offsetTop;
 
-*/
+  img.style.transformOrigin = `${x}px ${y}px`;
+  img.style.transform = "scale(2)";
+})
+
+box.addEventListener("mouseleave", () => {
+  img.style.transformOrigin = "center center";
+  img.style.transform = "scale(1)";
+})
