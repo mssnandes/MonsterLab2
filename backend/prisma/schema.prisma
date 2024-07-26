@@ -27,10 +27,31 @@ model Clothing{
   name          String  @unique
   image         String  @unique
   price         Float  
-  description   String  
+  description   String  @db.Text
   promotion     Float  
   stock         Int  
   size          String  
 
   @@map("clothing")
+}
+
+model Suplements{
+  id            Int     @id @default(autoincrement())
+  nameProduct   String  @unique
+  image         String  @unique
+  marca         String
+  price         Float  
+  description   String  @db.Text
+  promotion     Float  
+  stock         Int  
+  weight        String  
+
+  @@map("suplements")
+}
+
+model Sabores{
+  id            Int     @id @default(autoincrement())
+  sabor         String     
+
+  @@map("sabores")  
 }

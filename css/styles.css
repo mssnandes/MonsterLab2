@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 /*!
 * Start Bootstrap - Shop Homepage v5.0.6 (https://startbootstrap.com/template/shop-homepage)
 * Copyright 2013-2023 Start Bootstrap
@@ -6241,6 +6242,22 @@ section{
   flex-grow: 1;
   padding: var(--bs-offcanvas-padding-y) var(--bs-offcanvas-padding-x);
   overflow-y: auto;
+}
+
+.card-fix{
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.text-fix{
+  width: 100%;
+  height: 100px;
+}
+
+.card-fix img{
+  height: 100%;
+  width: 100%;
 }
 
 .placeholder {

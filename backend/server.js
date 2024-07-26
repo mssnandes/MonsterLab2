@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import { dirname } from "path";
 import authRoutes from "./src/routes/authRoutes.js";
 import clothingRoutes from "./src/routes/clothingRoutes.js";
+import suplementsRoutes from "./src/routes/suplementsRoutes.js";
 
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
@@ -20,6 +21,8 @@ server.use(express.static(__dirname + "/public"));
 
 server.use("/", authRoutes);
 server.use("/", clothingRoutes);
+server.use("/", suplementsRoutes);
+
 
 server.listen(process.env.PORT, () => {
   console.log(`Rodando na porta: ${process.env.BASE}`);

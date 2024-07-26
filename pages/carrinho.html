@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Monster Lab</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../img/icons/logo-monster-lab.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../css/bootstrap-icons.css">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+        <!-- Bootstrap Min CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    </head>
+    <body class="bgblack">
+        <!-- Navigation-->
+        <nav class="d-inline navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class=" d-row flex-row justify-content-between">
+              <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+              <div class="w-15"></div>
+              <a href="../index.html">
+                <header class="d-row flex-row justify-content-center">
+                    <img class="my-4" src="../img/Logo/Logo Fundo Transparente Branco 1280x520.png" width="300px">
+                  </header>
+              </a>
+              
+
+              <div class="p-3 d-row flex-row justify-content-between">
+                    <a class="text-decoration-none" href="login.html">
+                        <div class="p-4 transform-scale-0">
+                            <img src="../img/Icones/do-utilizador.png" width="40px">
+                            <span class="px-2 inter text-white">  Fazer Login </span>
+                          </div>
+                    </a>
+                <div class=" t-align p-4">
+                  <img class="img-hover transform-scale-1" src="../img/Icones/carrinho-de-compras.png" width="40px" height="40px">
+                </div>
+
+              </div>
+            </div>
+              <div class="d-block p-2">
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav mx-auto pb-5">
+                          <li class="nav-item px-lg-3"><a class="inter text-format " href="suplementos.html">Suplementos</a></li>
+                          <li class="nav-item px-lg-3"><a class="inter text-format " href="Roupas.html">Roupas</a></li>
+                          <li class="nav-item px-lg-3"><a class="inter text-format " href="Acessorios.html">Acessórios</a></li>
+                          <li class="nav-item px-lg-3"><a class="inter text-format " href="Contatos.html">Contato</a></li>
+                          <li class="nav-item px-lg-3"><a class="inter text-format " href="CrieSeuTreino.html">Crie seu Treino</a></li>
+                      </ul>
+                  </div>
+              </div>
+        </nav>
+        <!--Section Carrinho-->
+        <section class="h-100 h-custom" >
+            <div class="container py-5 h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12">
+                  <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                    <div class="card-body p-0">
+                      <div class="row g-0">
+                        <div class="col-lg-8">
+                          <div class="p-5">
+                            <div class="d-flex justify-content-between align-items-center mb-5">
+                              <h1 class="fw-bold mb-0">Carrinho</h1>
+                              <h6 class="mb-0 text-muted">3 itens</h6>
+                            </div>
+                            <hr class="my-4">
+          
+                            <div class="row mb-4 d-flex justify-content-between align-items-center">
+                              <div class="col-md-2 col-lg-2 col-xl-2">
+                                <img
+                                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp"
+                                  class="img-fluid rounded-3" alt="Cotton T-shirt">
+                              </div>
+                              <div class="col-md-3 col-lg-3 col-xl-3">
+                                <h6 class="text-muted">Shirt</h6>
+                                <h6 class="mb-0">Cotton T-shirt</h6>
+                              </div>
+                              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                  <i class="fas fa-minus"></i>
+                                </button>
+          
+                                <input id="form1" min="0" name="quantity" value="1" type="number"
+                                  class="form-control form-control-sm" />
+          
+                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                  <i class="fas fa-plus"></i>
+                                </button>
+                              </div>
+                              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                <h6 class="mb-0">€ 44.00</h6>
+                              </div>
+                              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                              </div>
+                            </div>
+          
+                            <hr class="my-4">
+          
+                            <div class="row mb-4 d-flex justify-content-between align-items-center">
+                              <div class="col-md-2 col-lg-2 col-xl-2">
+                                <img
+                                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img6.webp"
+                                  class="img-fluid rounded-3" alt="Cotton T-shirt">
+                              </div>
+                              <div class="col-md-3 col-lg-3 col-xl-3">
+                                <h6 class="text-muted">Shirt</h6>
+                                <h6 class="mb-0">Cotton T-shirt</h6>
+                              </div>
+                              <div class="col-md-3 col-lg-3 col-xl-2 d-flex btn-style">
+                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2 "
+                                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                  <i class="fas fa-minus"></i>
+                                </button>
+          
+                                <input id="form1" min="0" name="quantity" value="1" type="number"
+                                  class="form-control form-control-sm" />
+          
+                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                  <i class="fas fa-plus"></i>
+                                </button>
+                              </div>
+                              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                <h6 class="mb-0">€ 44.00</h6>
+                              </div>
+                              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                              </div>
+                            </div>
+          
+                            <hr class="my-4">
+          
+                            <div class="row mb-4 d-flex justify-content-between align-items-center">
+                              <div class="col-md-2 col-lg-2 col-xl-2">
+                                <img
+                                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img7.webp"
+                                  class="img-fluid rounded-3" alt="Cotton T-shirt">
+                              </div>
+                              <div class="col-md-3 col-lg-3 col-xl-3">
+                                <h6 class="text-muted">Shirt</h6>
+                                <h6 class="mb-0">Cotton T-shirt</h6>
+                              </div>
+                              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                  <i class="fas fa-minus"></i>
+                                </button>
+          
+                                <input id="form1" min="0" name="quantity" value="1" type="number"
+                                  class="form-control form-control-sm" />
+          
+                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                  <i class="fas fa-plus"></i>
+                                </button>
+                              </div>
+                              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                <h6 class="mb-0">€ 44.00</h6>
+                              </div>
+                              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                              </div>
+                            </div>
+          
+                            <hr class="my-4">
+          
+                            <div class="pt-5">
+                              <h6 class="mb-0"><a href="#!" class="text-body"><i
+                                    class="fas fa-long-arrow-alt-left me-2"></i>Retornar as compras</a></h6>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 bg-body-tertiary">
+                          <div class="p-5">
+                            <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                            <hr class="my-4">
+          
+                            <div class="d-flex justify-content-between mb-4">
+                              <h5 class="text-uppercase">items 3</h5>
+                              <h5>€ 132.00</h5>
+                            </div>
+          
+                            <h5 class="text-uppercase mb-3">Frete</h5>
+          
+                            <div class="mb-4 pb-2">
+                              <select data-mdb-select-init>
+                                <option value="1">Standard-Delivery- €5.00</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                                <option value="4">Four</option>
+                              </select>
+                            </div>
+          
+                            <h5 class="text-uppercase mb-3">Código de desconto</h5>
+          
+                            <div class="mb-5">
+                              <div data-mdb-input-init class="form-outline">
+                                <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                                <label class="form-label" for="form3Examplea2">Digite o código</label>
+                              </div>
+                            </div>
+          
+                            <hr class="my-4">
+          
+                            <div class="d-flex justify-content-between mb-5">
+                              <h5 class="text-uppercase">Subtotal</h5>
+                              <h5>€ 137.00</h5>
+                            </div>
+          
+                            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-block btn-lg"
+                              data-mdb-ripple-color="dark">Continuar para Pagamento</button>
+          
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark inter">
+                <div class="container text-white text-center p-5">
+                    <h1 class="h1">Quer ser nosso parceiro?</h1>
+                    <p class="p-4">Se você estiver interessado em nossa parceria e gostaria de descobrir mais algumas informações, nós estamos animados em ajudá-lo. </p>
+                    <button type="button" class="btn btn-danger px-5 py-2">Seja nosso parceiro</button>
+                </div>
+                <div class="container hr"></div>
+                <div class="container text-white-smoke text-center p-5">
+                    <div class="row align-items-start">
+                        <!-- Logo Monster -->
+                        <div class="col">
+                            <img src="../img/Logo/Logo Fundo Transparente Branco 1280x520.png" width="100%" alt="">
+                        </div>
+                        <!-- Meios de envio -->
+                        <div class="col p-3">
+                            <div class="container text-start text-white-smoke">
+                                <a class="d-block text-decoration-none text-white py-1 link-footer" href=""> Política de Privacidade </a>
+                                <a class="d-block text-decoration-none text-white py-1 link-footer" href=""> Pagamentos e Envios </a>
+                                <a class="d-block text-decoration-none text-white py-1 link-footer" href=""> Trocas e Devoluções </a>
+                                <a class="d-block text-decoration-none text-white py-1 link-footer" href=""> Como rastrear meu pedido? </a>
+                                <a class="d-block text-decoration-none text-white py-1 link-footer" href=""> Sobre nós </a>
+                            </div>                       
+                        </div>
+                        <!-- Formas de Pagamento -->
+                        <div class="col">
+                            <h1 class="h4 text-danger p-3">Formas de pagamento</h1>
+                            <div class="container">
+                                <img class="logo-footer" width="60px" height="40px" src="../img/Icones/pix@2x.png" alt="Icone pix">
+                                <img class="logo-footer" width="60px" height="40px" src="../img/Icones/elo@2x.png" alt="Icone elo">
+                                <img class="logo-footer" width="60px" height="40px" src="../img/Icones/mastercard@2x.png" alt="Icone mastercard">
+                                <img class="logo-footer" width="60px" height="40px" src="../img/Icones/visa@2x.png" alt="Icone visa">
+                            </div>
+                            <h1 class="h4 text-danger p-3">Meios de Envio</h1>
+                            <div class="">
+                                <img class="logo-footer" width="60px" height="40px" src="../img/Icones/correios.png" alt="Icone correios">
+                                <img class="logo-footer" width="60px" height="40px" src="../img/Icones/pac@2x.png" alt="Icone pac">
+                                <img class="logo-footer" width="60px" height="40px" src="../img/Icones/sedex@2x.png" alt="Icone sedex">
+                            </div>
+                        </div>
+                        <!-- Contato -->
+                        <div class="col text-white">
+                            <h1 class="h4 text-danger p-3">Contato</h1>
+                            <div class="d-row flex-row justify-content-start">
+                                <img width="40px" height="40px" src="../img/Icones/headset.png" alt="Icone de Headphone de Atendimento">
+                                <span class="my-xl-auto px-3"> ( 11 ) 99819-1221 </span>
+                            </div>
+                            <div class="d-row flex-row justify-content-around">
+                                <div></div>
+                                <span class="f-size">Atendimento: Seg á Sex 09:00 | 17:00</span>
+                            </div>
+                            <div class="d-row flex-row justify-content-start pt-3">
+                                <img width="40px" height="40px" src="../img/Icones/e-mail.png" alt="Icone de Email">
+                                <span class="my-xl-auto px-3">sac@monsterlab.com.br</span>
+                            </div>
+                            <h1 class="h4 text-danger py-3">Nos siga</h1>
+                            <div class="d-row flex-row justify-content-around px-5">
+                                <img width="40px" height="40px" src="../img/Icones/instagram.png" alt="Instagram">
+                                <img width="40px" height="40px" src="../img/Icones/facebook.png" alt="Facebook">
+                                <img width="40px" height="40px" src="../img/Icones/twitter.png" alt="Twitter">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="container hr"></div>
+                <div class="container"><p class="m-0 text-center text-white py-5"> &copy; Todos os direitos reservados | Monster Lab</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

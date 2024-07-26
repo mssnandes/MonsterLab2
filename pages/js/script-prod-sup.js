@@ -1,4 +1,4 @@
-async function pullClothing() {
+async function pullSupplements() {
     const idLocalStorage = localStorage.getItem('Id');
     if (!idLocalStorage) {
         alert('ID do produto não encontrado.');
@@ -7,15 +7,16 @@ async function pullClothing() {
 
     const id =  parseInt(idLocalStorage, 10);
     if (id) {
-      const response = await fetch(`http://localhost:3000/vestuario/${id}`);
+        
+      const response = await fetch(`http://localhost:3000/suplements/${id}`);
       if (response.ok) {
-        const vestuario = await response.json();
-        const clothingItems = vestuario.clothing;
-
-        const promotion = parseFloat(clothingItems.promotion);
+        const suplement = await response.json();
+        console.log(suplement)
+        const suplementItems = suplement.suplement;
+        const promotion = parseFloat(suplementItems.promotion);
         console.log(promotion);
         const promo = promotion == 0 ? "" : "R$" + promotion.toFixed(2);
-        const price = parseFloat(clothingItems.price);
+        const price = parseFloat(suplementItems.price);
 
         
         const parcela = ( price / 3 );
@@ -24,11 +25,11 @@ async function pullClothing() {
 
             <div class="row gx-4 gx-lg-5 align-items-center">
                 <div class="col-md-6 zoom-container">
-                    <img class="card-img-top mb-5 mb-md-0 cursor-zoom-in" src="/./img/Produtos/Vestuário/${clothingItems.image}" alt="..." />
+                    <img class="card-img-top mb-5 mb-md-0 cursor-zoom-in" src="/./img/Produtos/Suplementos/${suplementItems.image}" alt="..." />
                 </div>
                 <div class="col-md-6">
                     <div class="small mb-1"></div>
-                    <h1 class="display-5 fw-bolder">${clothingItems.name}</h1>
+                    <h1 class="display-5 fw-bolder">${suplementItems.nameProduct + " " + suplementItems.weight + " - " + suplementItems.marca }</h1>
                     <div class="d-flex justify-content-start small text-warning mb-2">
                         <div class="bi-star-fill"></div>
                         <div class="bi-star-fill"></div>
@@ -40,7 +41,7 @@ async function pullClothing() {
 
                     <div class="fs-5 mb-2">
                         <span class="text-decoration-line-through h5 text-danger">${promo}</span>
-                        <span class="h2">R$${clothingItems.price.toFixed(2)}</span>
+                        <span class="h2">R$${suplementItems.price.toFixed(2)}</span>
                     </div>
 
                     <div class="d-flex">
@@ -70,13 +71,13 @@ async function pullClothing() {
                         <div class="form-floating form-width-25 mx-3">
                             <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
                               <option selected></option>
-                              <option value="1">PP</option>
-                              <option value="2">P</option>
-                              <option value="3">M</option>
-                              <option value="4">G</option>
-                              <option value="5">GG</option>
+                              <option value="1">Chocolate</option>
+                              <option value="2">Baunilha</option>
+                              <option value="3">Morango</option>
+                              <option value="4">Natural</option>
+                              <option value="5">Cookies and Cream</option>
                             </select>
-                            <label for="floatingSelect">Tamanho</label>
+                            <label for="floatingSelect">Sabores</label>
                         </div>
 
                         <button class="btn btn-outline-dark flex-shrink-0 form-button" type="button">
@@ -87,7 +88,7 @@ async function pullClothing() {
                         
                     </div>
                     <p class="lead">
-                        ${clothingItems.description}
+                        ${suplementItems.description}
                     </p>
                 </div>
             </div>
@@ -100,4 +101,4 @@ async function pullClothing() {
     }
 }
 
-window.onload = pullClothing;
+window.onload = pullSupplements;
