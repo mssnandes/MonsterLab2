@@ -36,15 +36,16 @@ model Clothing{
 }
 
 model Suplements{
-  id            Int     @id @default(autoincrement())
-  nameProduct   String  @unique
-  image         String  @unique
-  marca         String
-  price         Float  
-  description   String  @db.Text
-  promotion     Float  
-  stock         Int  
-  weight        String  
+  id              Int     @id @default(autoincrement())
+  suplementClass  String  
+  nameProduct     String  @unique
+  image           String  @unique
+  marca           String
+  price           Float  
+  description     String  @db.Text
+  promotion       Float  
+  stock           Int  
+  weight          String  
 
   @@map("suplements")
 }

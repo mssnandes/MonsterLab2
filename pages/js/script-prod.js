@@ -11,8 +11,6 @@ async function pullClothing() {
       if (response.ok) {
         const vestuario = await response.json();
         const clothingItems = vestuario.clothing;
-        console.log(clothingItems)
-        
         const promotion = parseFloat(clothingItems.promotion);
 
         const promo = promotion == 0 ? "" : "R$" + promotion.toFixed(2);
@@ -23,9 +21,9 @@ async function pullClothing() {
 
         const productHTML = `
 
-            <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6 zoom-container">
-                    <img class="card-img-top mb-5 mb-md-0 cursor-zoom-in" src="/./img/Produtos/Vestuário/${clothingItems.image}" alt="..." />
+            <div class="row gx-4 gx-lg-5 align-items-center img-wrapper">
+                <div class="col-md-6 box">
+                    <img class="card-img-top mb-5 mb-md-0 cursor-zoom-in img-zoom" src="/./img/Produtos/Vestuário/${clothingItems.image}" alt="..." />
                 </div>
                 <div class="col-md-6">
                     <div class="small mb-1"></div>
@@ -59,7 +57,6 @@ async function pullClothing() {
 
                         <div class="form-floating form-width-25 mx-3">
                             <select class="form-select value-select" id="floatingSelect" aria-label="Floating label select example">
-                              <option selected></option>
                               <option value="1">PP</option>
                               <option value="2">P</option>
                               <option value="3">M</option>
@@ -98,6 +95,7 @@ async function pullClothing() {
                 if( valueInput > clothingItems.stock ){
                     alert(`A quantidade que você selecionou não temos disponível no estoque. Estoque: ${clothingItems.stock}`)
                 }
+                    alert('Produto adicionado ao carrinho.')
             })
         } else {
           alert('Erro ao buscar a roupa. Verifique se o ID está correto.');

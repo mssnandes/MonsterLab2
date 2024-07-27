@@ -1,4 +1,5 @@
 import { createUser , findUserByEmail} from '../models/User.js';
+import bcrypt from 'bcryptjs';
 
 export const signup = async (req, res) => {
   try {
@@ -11,12 +12,14 @@ export const signup = async (req, res) => {
       return;
     }
 
+    const hashedPassword = bcrypt.hashSync(data.password, 10);
+
     // Criar o usuário
     await createUser(
       {
         name: data.name,
         email: data.email,
-        password: data.password,
+        password: hashedPassword,
       },
     );
 
@@ -34,21 +37,17 @@ export const signin = async (req, res) => {
     // Verificar se o email existe
     const user = await findUserByEmail(email);
     
-    if (!user || user.password !== password) {
+    if (!user || !bcrypt.compareSync(password, user.password )) {
       res.status(401).json({ error: "Email or password invalid!" });
       return;
     }
 
     // Retornar o status
-    res.status(200).json({ userId: user.id, email ,senha: user.password});
+    res.status(200).json({ message: "Login successful" });
   } catch (error) {
     res.status(500).json({ error: "Failed to log in", message: error.message });
   }
 };
-
-
-
-
 
 
 

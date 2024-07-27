@@ -121,6 +121,32 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+body{
+  background-color: #eee;
+}
+
+.container{
+  position: relative;
+}
+
+.img-wrapper{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+}
+
+.box{
+  overflow: hidden !important;
+}
+
+.img-zoom{
+  transform-origin: center center !important;
+  object-fit: cover !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -2912,6 +2938,11 @@ textarea.form-control-lg {
 .btn-fix{
   border: none;
   background-color: #fff3cd;
+}
+
+.div-section-fix{
+  padding-bottom: 0 !important;
+
 }
 
 .btn:hover {

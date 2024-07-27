@@ -19,6 +19,6 @@ document.getElementById('signinForm').addEventListener('submit', function(event)
     .catch(error => {
         console.error('Erro:', error);
         // Aqui você pode lidar com erros de requisição
-        alert('Ocorreu um erro ao cadastrar o usuário.');
+        alert('Ocorreu um erro ao logar o usuário.');
     });
 });

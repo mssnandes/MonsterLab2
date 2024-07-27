@@ -13,11 +13,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const server = express();
+
 server.use(cors());
 server.use(express.json());
 server.use(fileUpload());
-
 server.use(express.static(__dirname + "/public"));
+
 
 server.use("/", authRoutes);
 server.use("/", clothingRoutes);

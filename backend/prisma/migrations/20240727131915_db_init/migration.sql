@@ -26,6 +26,7 @@ CREATE TABLE `clothing` (
 -- CreateTable
 CREATE TABLE `suplements` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `suplementClass` VARCHAR(191) NOT NULL,
     `nameProduct` VARCHAR(191) NOT NULL,
     `image` VARCHAR(191) NOT NULL,
     `marca` VARCHAR(191) NOT NULL,
