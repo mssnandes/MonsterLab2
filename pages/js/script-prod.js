@@ -11,15 +11,16 @@ async function pullClothing() {
       if (response.ok) {
         const vestuario = await response.json();
         const clothingItems = vestuario.clothing;
-
+        console.log(clothingItems)
+        
         const promotion = parseFloat(clothingItems.promotion);
-        console.log(promotion);
+
         const promo = promotion == 0 ? "" : "R$" + promotion.toFixed(2);
         const price = parseFloat(clothingItems.price);
 
         
         const parcela = ( price / 3 );
-        console.log(Number.isInteger(price))
+
         const productHTML = `
 
             <div class="row gx-4 gx-lg-5 align-items-center">
@@ -39,7 +40,7 @@ async function pullClothing() {
                     </div>
 
                     <div class="fs-5 mb-2">
-                        <span class="text-decoration-line-through h5 text-danger">${promo}</span>
+                        <span class="text-decoration-line-through h5 text-danger">${promo} </span>
                         <span class="h2">R$${clothingItems.price.toFixed(2)}</span>
                     </div>
 
@@ -53,22 +54,11 @@ async function pullClothing() {
                     </div>
 
                     <div class="d-flex my-4">
-                        <select class="form-select pointer form-width-15" aria-label="Default select example">
-                            <option selected></option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
+
+                        <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control fs-5 text-center form-width-15 form-control-sm form-quantity" />
 
                         <div class="form-floating form-width-25 mx-3">
-                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <select class="form-select value-select" id="floatingSelect" aria-label="Floating label select example">
                               <option selected></option>
                               <option value="1">PP</option>
                               <option value="2">P</option>
@@ -79,7 +69,7 @@ async function pullClothing() {
                             <label for="floatingSelect">Tamanho</label>
                         </div>
 
-                        <button class="btn btn-outline-dark flex-shrink-0 form-button" type="button">
+                        <button class="btn btn-outline-dark flex-shrink-0 form-button" id="btn-cart" type="button">
                             <i class="bi-cart-fill me-1"></i>
                             Adicionar ao Carrinho
                         </button>
@@ -94,6 +84,21 @@ async function pullClothing() {
                           
             `;
             document.querySelector('.add-html').innerHTML += productHTML;
+
+            const btnCart = document.getElementById('btn-cart');
+            btnCart.addEventListener('click', (e) => {
+                e.preventDefault();
+                const valueInput = document.querySelector('.form-quantity').value;
+                const valueSelect = document.querySelector('.value-select').value;
+                console.log(valueInput)
+                console.log(valueSelect)
+                if(  valueSelect === 0  ){
+                    alert(`Não temos tamanho ${clothingItems.size} mais disponível no estoque, escolha outro tamanho.`)
+                }
+                if( valueInput > clothingItems.stock ){
+                    alert(`A quantidade que você selecionou não temos disponível no estoque. Estoque: ${clothingItems.stock}`)
+                }
+            })
         } else {
           alert('Erro ao buscar a roupa. Verifique se o ID está correto.');
         }

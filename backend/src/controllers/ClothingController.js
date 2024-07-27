@@ -28,13 +28,13 @@ export const findClothing = async (req, res) => {
     try {
         let dado = req.body;
         const data = {
+            clothingClass: dado.clothingClass,
             name: dado.name,
             image: dado.image,
             price: dado.price,
             description: dado.description,
             promotion: dado.promotion,
             stock: dado.stock,
-            size: dado.size,
         };
         const info = await createClothing(data);
         return res.status(201).json({ info });

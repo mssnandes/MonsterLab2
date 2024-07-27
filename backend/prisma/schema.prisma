@@ -24,13 +24,13 @@ model User{
 
 model Clothing{
   id            Int     @id @default(autoincrement())
-  name          String  @unique
-  image         String  @unique
+  clothingClass String
+  name          String  
+  stock         Int
   price         Float  
   description   String  @db.Text
+  image         String
   promotion     Float  
-  stock         Int  
-  size          String  
 
   @@map("clothing")
 }

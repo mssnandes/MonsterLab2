@@ -19,6 +19,7 @@ async function pullSupplements() {
         const price = parseFloat(suplementItems.price);
 
         
+        
         const parcela = ( price / 3 );
         console.log(Number.isInteger(price))
         const productHTML = `
@@ -54,19 +55,8 @@ async function pullSupplements() {
                     </div>
 
                     <div class="d-flex my-4">
-                        <select class="form-select pointer form-width-15" aria-label="Default select example">
-                            <option selected></option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
+                        
+                        <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control fs-5 text-center form-width-15 form-control-sm form-quantity" />
 
                         <div class="form-floating form-width-25 mx-3">
                             <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
@@ -80,7 +70,7 @@ async function pullSupplements() {
                             <label for="floatingSelect">Sabores</label>
                         </div>
 
-                        <button class="btn btn-outline-dark flex-shrink-0 form-button" type="button">
+                        <button id="btn-cart" class="btn btn-outline-dark flex-shrink-0 form-button" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Adicionar ao Carrinho
                         </button>
@@ -95,6 +85,17 @@ async function pullSupplements() {
                           
             `;
             document.querySelector('.add-html').innerHTML += productHTML;
+            
+            const btnCart = document.getElementById('btn-cart');
+            btnCart.addEventListener('click', (e) => {
+                e.preventDefault();
+                const valueInput = document.querySelector('.form-quantity').value;
+                console.log(valueInput)
+                if( valueInput > suplementItems.stock ){
+                    alert(`A quantidade que você selecionou não temos disponível no estoque. Estoque: ${suplementItems.stock}`)
+                }
+            })
+
         } else {
           alert('Erro ao buscar a roupa. Verifique se o ID está correto.');
         }
@@ -102,3 +103,5 @@ async function pullSupplements() {
 }
 
 window.onload = pullSupplements;
+
+

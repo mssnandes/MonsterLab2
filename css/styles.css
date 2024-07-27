@@ -2908,6 +2908,12 @@ textarea.form-control-lg {
     transition: none;
   }
 }
+
+.btn-fix{
+  border: none;
+  background-color: #fff3cd;
+}
+
 .btn:hover {
   color: var(--bs-btn-hover-color);
   background-color: var(--bs-btn-hover-bg);

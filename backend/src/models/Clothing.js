@@ -16,13 +16,13 @@ export const createClothing = async (data) => {
   try {
     return await prisma.clothing.create({
       data: {
+        clothingClass: data.clothingClass,
         name: data.name,
         image: data.image,
         price: data.price,
         description: data.description,
         promotion: data.promotion,
         stock: data.stock,
-        size: data.size,
       },
     });
   } catch (error) {
