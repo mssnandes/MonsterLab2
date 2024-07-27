@@ -13,7 +13,7 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
         console.log('Sucesso:', data);
         // Aqui você pode manipular a resposta do servidor
         alert('Usuário cadastrado com sucesso!');
-        window.open('../index.html');
+        window.open('./login.html');
     })
     .catch(error => {
         console.error('Erro:', error);

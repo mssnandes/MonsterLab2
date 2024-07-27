@@ -50,6 +50,18 @@ model Suplements{
   @@map("suplements")
 }
 
+model Acessories{
+  id              Int     @id @default(autoincrement()) 
+  name            String  
+  image           String  @unique
+  price           Float  
+  description     String  @db.Text
+  promotion       Float  
+  stock           Int   
+
+  @@map("acessories")
+}
+
 model Sabores{
   id            Int     @id @default(autoincrement())
   sabor         String     
