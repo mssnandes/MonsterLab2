@@ -35,9 +35,11 @@
                         <span class="px-2 inter text-white">  Fazer Login </span>
                       </div>
                 </a>
-                <div class=" t-align p-4">
-                  <img class="img-hover transform-scale-1" src="../img/Icones/carrinho-de-compras.png" width="40px" height="40px">
-                </div>
+                <a href="./carrinho.html">
+                    <div class=" t-align p-4">
+                      <img class="img-hover transform-scale-1" src="../img/Icones/carrinho-de-compras.png" width="40px" height="40px">
+                    </div>
+                  </a>
 
               </div>
             </div>
@@ -55,7 +57,7 @@
           </nav>
         <!-- Form Login -->
         <section class="py-5">
-            <form class="container mx-auto row form-check" id="signinForm" method="POST">
+            <form class="container mx-auto row form-check" id="signinForm" method="POST" onsubmit="checkInput(event)">
                 <h1 class="h1 my-4 text-center inter">FAZER LOGIN</h1>
                 <input class="my-3 p-3 form-control mx-auto mw-50 auth-email" type="email" placeholder="Email" name="email" id="exampleFormControlInput1" required>
                 <input class="my-3 p-3 form-control mx-auto mw-50 auth-password" type="password" placeholder="Senha" name="password" id="exampleFormControlInput1" required>

@@ -22,6 +22,7 @@
     "express-fileupload": "^1.5.1",
     "express-session": "^1.18.0",
     "jimp": "^0.22.12",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.10.3",
     "nodemon": "^3.1.4",
     "uuid": "^10.0.0"
