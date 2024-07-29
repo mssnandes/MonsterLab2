@@ -56,10 +56,10 @@ async function pullAcessories() {
                         <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control fs-5 text-center form-width-15 form-control-sm form-quantity me-sm-5" />
 
 
-                        <button class="btn btn-outline-dark flex-shrink-0 form-button" id="btn-cart" type="button">
-                            <i class="bi-cart-fill me-1"></i>
-                            Adicionar ao Carrinho
-                        </button>
+                    <button class="btn btn-outline-dark flex-shrink-0 form-button" id="btn-cart" type="button" onclick="addToCart(${acessoriesItems.id})">
+                        <i class="bi-cart-fill me-1"></i>
+                        Adicionar ao Carrinho
+                    </button>
 
                         
                     </div>

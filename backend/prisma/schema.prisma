@@ -68,3 +68,12 @@ model Sabores{
 
   @@map("sabores")  
 }
+
+model Cart {
+  id            Int      @id @default(autoincrement())
+  productId     Int
+  quantity      Int
+  createdAt     DateTime @default(now())
+
+  @@map("cart")
+}
