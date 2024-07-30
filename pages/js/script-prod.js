@@ -11,6 +11,7 @@ async function pullClothing() {
       if (response.ok) {
         const vestuario = await response.json();
         const clothingItems = vestuario.clothing;
+
         const promotion = parseFloat(clothingItems.promotion);
 
         const promo = promotion == 0 ? "" : "R$" + promotion.toFixed(2);
@@ -57,15 +58,15 @@ async function pullClothing() {
 
                         <div class="form-floating form-width-25 mx-3">
                             <select class="form-select value-select" id="floatingSelect" aria-label="Floating label select example">
-                              <option value="1">PP</option>
-                              <option value="2">P</option>
-                              <option value="3">M</option>
-                              <option value="4">G</option>
-                              <option value="5">GG</option>
+                              <option value="PP">PP</option>
+                              <option value="P">P</option>
+                              <option value="M">M</option>
+                              <option value="G">G</option>
+                              <option value="GG">GG</option>
                             </select>
                             <label for="floatingSelect">Tamanho</label>
                         </div>
-
+                        
                         <button class="btn btn-outline-dark flex-shrink-0 form-button" id="btn-cart" type="button">
                             <i class="bi-cart-fill me-1"></i>
                             Adicionar ao Carrinho
@@ -83,19 +84,45 @@ async function pullClothing() {
             document.querySelector('.add-html').innerHTML += productHTML;
 
             const btnCart = document.getElementById('btn-cart');
-            btnCart.addEventListener('click', (e) => {
+            btnCart.addEventListener('click', async (e) => {
                 e.preventDefault();
                 const valueInput = document.querySelector('.form-quantity').value;
                 const valueSelect = document.querySelector('.value-select').value;
-                console.log(valueInput)
-                console.log(valueSelect)
+                const typeProduct = "Vestuário";
                 if(  valueSelect === 0  ){
                     alert(`Não temos tamanho ${clothingItems.size} mais disponível no estoque, escolha outro tamanho.`)
+                    return
                 }
                 if( valueInput > clothingItems.stock ){
                     alert(`A quantidade que você selecionou não temos disponível no estoque. Estoque: ${clothingItems.stock}`)
+                    return
                 }
-                    alert('Produto adicionado ao carrinho.')
+                    const cartItem = {
+                        type: typeProduct,
+                        name: clothingItems.name,
+                        image: clothingItems.image,
+                        price: clothingItems.price,
+                        quantity: parseInt(valueInput, 10),
+                        size: valueSelect,
+                        sabor: "",
+                    };
+                
+                    // Enviar os dados para o backend
+                    try {
+                        const response = await fetch('http://localhost:3000/cart/add', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(cartItem)
+                        });
+                        if (response.ok) {
+                            alert('Produto adicionado ao carrinho.');
+                        } else {
+                            alert('Erro ao adicionar produto ao carrinho.');
+                        }
+                    } catch (error) {
+                        console.error('Erro:', error);
+                        alert('Erro ao conectar com o servidor.');
+                    }
             })
         } else {
           alert('Erro ao buscar a roupa. Verifique se o ID está correto.');

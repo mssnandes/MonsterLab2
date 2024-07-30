@@ -20,4 +20,4 @@ export const createUser = async (data) => {
   } catch (error) {
       throw new Error(`Falha ao achar usuario: ${error.message}`);
   }
-  };
+};

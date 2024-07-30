@@ -8,6 +8,7 @@ import authRoutes from "./src/routes/authRoutes.js";
 import clothingRoutes from "./src/routes/clothingRoutes.js";
 import suplementsRoutes from "./src/routes/suplementsRoutes.js";
 import acessoriesRoutes from "./src/routes/acessoriesRoutes.js";
+import cartRoutes from "./src/routes/cartRoutes.js";
 
 
 dotenv.config();
@@ -27,6 +28,7 @@ server.use("/" ,authRoutes);
 server.use("/" ,clothingRoutes);
 server.use("/" ,suplementsRoutes);
 server.use("/" ,acessoriesRoutes);
+server.use("/" ,cartRoutes);
 
 
 server.listen(process.env.PORT, () => {

@@ -3,7 +3,7 @@ async function loadItems() {
         if (response.ok) {
             const vestuario = await response.json();
             const clothingItems = vestuario.clothing;
-
+            console.log(clothingItems)
             let parcela = ( clothingItems.price / 3 );
             let cont = 1;
             clothingItems.forEach(clothingItems => {

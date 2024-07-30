@@ -68,3 +68,16 @@ model Sabores{
 
   @@map("sabores")  
 }
+
+model Cart{
+  id       Int      @id @default(autoincrement())
+  type            String
+  name            String  
+  image           String  @unique
+  price           Float  
+  quantity        Int
+  size            String  
+  sabor           String  
+  
+  @@map("cart")  
+}
